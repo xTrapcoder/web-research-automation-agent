@@ -1,0 +1,11 @@
+# Web Research Automation Agent — runtime dependencies
+# Install with: pip install -r requirements.txt
+# (For development tooling, use: pip install -e ".[dev]")
+
+groq>=0.9.0               # Groq API client (default LLM provider — fast, free tier)
+google-generativeai>=0.7  # Google Gemini client (swap-in alternative provider)
+ddgs>=6.0                 # DuckDuckGo search (no API key required)
+httpx>=0.27               # Async-capable HTTP client (used for concurrent fetching)
+beautifulsoup4>=4.12      # HTML parsing and text extraction
+lxml>=5.0                 # Fast parser backend for BeautifulSoup
+python-dotenv>=1.0        # Loads .env into the environment
