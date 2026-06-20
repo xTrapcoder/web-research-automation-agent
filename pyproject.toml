@@ -25,6 +25,17 @@ dev = [
 [project.scripts]
 research-agent = "main:main"
 
+[tool.setuptools]
+# main.py is a loose top-level module (not a package), so it needs to be
+# listed explicitly — setuptools' auto-discovery only finds directories
+# with an __init__.py, which is also why "packages.find" below is scoped
+# to research_agent*: left to its defaults it would also pick up tests/
+# (which has its own __init__.py) and ship it inside the built package.
+py-modules = ["main"]
+
+[tool.setuptools.packages.find]
+include = ["research_agent*"]
+
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
